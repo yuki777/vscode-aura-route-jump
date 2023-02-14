@@ -8,8 +8,6 @@
 
 ## e.g.
 
-- `@Named("getFoo=getFOO,getBar=getBAR")` => jump to `var/db/sql/getBAR.sql`
-- `@Query(id="getHoge"` => jump to `var/db/sql/getHoge.sql`
-- `@Query("getPiyo", type="row")` => jump to `var/db/sql/getPiyo.sql`
-- `#[DbQuery(id:'foo_bar_list')]` => jump to `var/db/sql/foo_bar_list.sql`
-- `#[DbQuery('get_hoge_piyo')]` => jump to `var/db/sql/get_hoge_piyo.sql`
+- `$map->get('/category', '/category/path/accessed/by/user')` => jump to `src/Resource/Page/Category.php`
+- `$map->route('/subCategory', '/sub-category/path/accessed/by/user')` => jump to `src/Resource/Page/SubCategory.php`
+- `$map->post('/topics/index', '/topics/path/accessed/by/user')` => jump to `src/Resource/Page/Topics/Index.php`
