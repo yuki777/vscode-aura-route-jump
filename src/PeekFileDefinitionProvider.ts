@@ -35,9 +35,19 @@ export default class PeekFileDefinitionProvider implements vscode.DefinitionProv
     const possibleFileNames: String[] = [];
 
     // "/foo/bar" => "/Foo/Bar"
+    // "/foo-bar" => "/FooBar"
     const tryFileBase = routeName
       .split("/")
-      .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
+      .map((x) => {
+        if (x.includes("-")) {
+          return x
+            .split("-")
+            .map((dashed) => dashed.charAt(0).toUpperCase() + dashed.slice(1))
+            .join("");
+        } else {
+          return x.charAt(0).toUpperCase() + x.slice(1);
+        }
+      })
       .join("/");
 
     // add all possible file paths to the array
